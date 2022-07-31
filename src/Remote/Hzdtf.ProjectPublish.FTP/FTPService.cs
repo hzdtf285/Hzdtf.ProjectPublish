@@ -20,6 +20,7 @@ namespace Hzdtf.ProjectPublish.FTP
 {
     /// <summary>
     /// FTP服务
+    /// @ 黄振东
     /// </summary>
     public class FTPService : IRemoteService
     {

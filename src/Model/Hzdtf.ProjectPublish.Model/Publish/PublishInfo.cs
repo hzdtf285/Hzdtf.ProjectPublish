@@ -10,6 +10,7 @@ namespace Hzdtf.ProjectPublish.Model.Publish
 {
     /// <summary>
     /// 发布信息
+    /// @ 黄振东
     /// </summary>
     public class PublishInfo
     {

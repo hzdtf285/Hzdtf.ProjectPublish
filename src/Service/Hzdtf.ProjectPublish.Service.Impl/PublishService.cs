@@ -16,6 +16,7 @@ namespace Hzdtf.ProjectPublish.Service.Impl
 {
     /// <summary>
     /// 发布服务
+    /// @ 黄振东
     /// </summary>
     public class PublishService : ServiceBase, IPublishService
     {

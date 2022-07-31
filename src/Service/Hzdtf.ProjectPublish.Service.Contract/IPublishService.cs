@@ -12,6 +12,7 @@ namespace Hzdtf.ProjectPublish.Service.Contract
 {
     /// <summary>
     /// 发布服务接口
+    /// @ 黄振东
     /// </summary>
     public interface IPublishService : ISetObject<IRemoteService>
     {

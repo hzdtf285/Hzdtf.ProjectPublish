@@ -28,6 +28,7 @@
         <member name="T:Hzdtf.ProjectPublish.Model.Publish.PublishInfo">
             <summary>
             发布信息
+            @ 黄振东
             </summary>
         </member>
         <member name="P:Hzdtf.ProjectPublish.Model.Publish.PublishInfo.ProjectPublishes">

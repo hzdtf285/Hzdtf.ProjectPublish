@@ -7,6 +7,7 @@
         <member name="T:Hzdtf.ProjectPublish.FTP.FTPService">
             <summary>
             FTP服务
+            @ 黄振东
             </summary>
         </member>
         <member name="F:Hzdtf.ProjectPublish.FTP.FTPService.ftpWrap">

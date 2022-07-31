@@ -19,6 +19,7 @@
         <member name="T:Hzdtf.ProjectPublish.Service.Contract.IPublishService">
             <summary>
             发布服务接口
+            @ 黄振东
             </summary>
         </member>
         <member name="M:Hzdtf.ProjectPublish.Service.Contract.IPublishService.PublishAsync(Hzdtf.ProjectPublish.Model.Publish.PublishInfo)">
