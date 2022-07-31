@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Authors>黄振东</Authors>
+    <Company>Hzdtf</Company>
+    <Product>项目发布服务实现类库</Product>
+    <Description>项目发布服务实现类库，运行在.Net5以上</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Hzdtf.ProjectPublish.Service.Impl.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Hzdtf.ProjectPublish.Service.Impl.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Persistence\Hzdtf.ProjectPublish.Persistence.Contract\Hzdtf.ProjectPublish.Persistence.Contract.csproj" />
+    <ProjectReference Include="..\..\Remote\Hzdtf.ProjectPublish.Remote.Contract\Hzdtf.ProjectPublish.Remote.Contract.csproj" />
+    <ProjectReference Include="..\Hzdtf.ProjectPublish.Service.Contract\Hzdtf.ProjectPublish.Service.Contract.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Hzdtf.Logger.Contract">
+      <HintPath>..\..\Library\Hzdtf.Logger.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="Hzdtf.Mini">
+      <HintPath>..\..\Library\Hzdtf.Mini.dll</HintPath>
+    </Reference>
+    <Reference Include="Hzdtf.Utility">
+      <HintPath>..\..\Library\Hzdtf.Utility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

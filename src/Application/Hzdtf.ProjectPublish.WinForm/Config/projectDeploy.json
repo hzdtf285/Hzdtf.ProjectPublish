@@ -1,0 +1,33 @@
+﻿{
+  "ProjectDeploys": [ // 开发环境
+    {
+      "ProjectDeployId": 1,
+      "ProjectId": 1,
+      "ServerId": 1,
+      "MachineId": 1,
+      "ProjectDeployPath": "/Service1"
+    },
+    {
+      "ProjectDeployId": 2,
+      "ProjectId": 2,
+      "ServerId": 1,
+      "MachineId": 1,
+      "ProjectDeployPath": "/Service2"
+    },
+    // 生产环境
+    {
+      "ProjectDeployId": 1001,
+      "ProjectId": 1,
+      "ServerId": 2,
+      "MachineId": 1,
+      "ProjectDeployPath": "/Service1"
+    },
+    {
+      "ProjectDeployId": 1002,
+      "ProjectId": 2,
+      "ServerId": 2,
+      "MachineId": 1,
+      "ProjectDeployPath": "/Service2"
+    }
+  ]
+}

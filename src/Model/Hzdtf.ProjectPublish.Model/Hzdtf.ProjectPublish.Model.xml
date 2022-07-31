@@ -1,0 +1,469 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hzdtf.ProjectPublish.Model</name>
+    </assembly>
+    <members>
+        <member name="T:Hzdtf.ProjectPublish.Model.Emums.ProgressStatus">
+            <summary>
+            进程状态枚举
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.Model.Emums.ProgressStatus.BeforeExec">
+            <summary>
+            执行前
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.Model.Emums.ProgressStatus.Execing">
+            <summary>
+            执行中
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.Model.Emums.ProgressStatus.AfterExec">
+            <summary>
+            执行后
+            </summary>
+        </member>
+        <member name="T:Hzdtf.ProjectPublish.Model.Publish.PublishInfo">
+            <summary>
+            发布信息
+            </summary>
+        </member>
+        <member name="P:Hzdtf.ProjectPublish.Model.Publish.PublishInfo.ProjectPublishes">
+            <summary>
+            项目发布数组
+            </summary>
+        </member>
+        <member name="P:Hzdtf.ProjectPublish.Model.Publish.PublishInfo.ProjectGlobalConfig">
+            <summary>
+            项目全局配置
+            </summary>
+        </member>
+        <member name="P:Hzdtf.ProjectPublish.Model.Publish.PublishInfo.IsRemotePublish">
+            <summary>
+            是否远程发布
+            </summary>
+        </member>
+        <member name="P:Hzdtf.ProjectPublish.Model.Publish.PublishInfo.CallbackExecProject">
+            <summary>
+            回调执行项目
+            </summary>
+        </member>
+        <member name="P:Hzdtf.ProjectPublish.Model.Publish.PublishInfo.CallbackExecFileDesc">
+            <summary>
+            回调执行项目文件明细
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.Model.Publish.PublishInfo.OnCallbackExecProject(Hzdtf.PublishProject.Model.Project.ProjectPublishInfo,Hzdtf.ProjectPublish.Model.Emums.ProgressStatus,System.String)">
+            <summary>
+            调用回调执行项目
+            </summary>
+            <param name="projectPublish">项目发布</param>
+            <param name="status">进度状态</param>
+            <param name="msg">消息</param>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.Model.Publish.PublishInfo.OnCallbackExecFileDesc(Hzdtf.PublishProject.Model.Project.ProjectPublishInfo,Hzdtf.ProjectPublish.Model.Emums.ProgressStatus,System.String,System.String,System.Double)">
+            <summary>
+            调用回调执行项目文件明细
+            </summary>
+            <param name="projectPublish">项目发布</param>
+            <param name="status">进度状态</param>
+            <param name="msg">消息</param>
+            <param name="fileName">文件名</param>
+            <param name="progress">进程数字</param>
+        </member>
+        <member name="T:Hzdtf.ProjectPublish.Model.Remote.RemoteWayInfo">
+            <summary>
+            远程方式信息
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.ProjectPublish.Model.Remote.RemoteWayInfo.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.ProjectPublish.Model.Remote.RemoteWayInfo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo">
+            <summary>
+            项目部署信息
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo.ProjectDeploys">
+            <summary>
+            项目部署数组
+            </summary>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo.Projectdeploy">
+            <summary>
+            项目部署
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo.Projectdeploy.ProjectDeployId">
+            <summary>
+            项目部署ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo.Projectdeploy.ProjectId">
+            <summary>
+            项目ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo.Projectdeploy.ServerId">
+            <summary>
+            服务器ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo.Projectdeploy.MachineId">
+            <summary>
+            物理机ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo.Projectdeploy.ProjectDeployPath">
+            <summary>
+            项目部署路径
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo.Projectdeploy.EnviVarGroup">
+            <summary>
+            环境变量组
+            </summary>
+        </member>
+        <member name="M:Hzdtf.PublishProject.Model.Project.ProjectDeployInfo.Projectdeploy.Clone">
+            <summary>
+            浅拷贝
+            </summary>
+            <returns>项目部署</returns>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Project.ProjectDeployInfoExtensions">
+            <summary>
+            项目部署信息扩展类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.PublishProject.Model.Project.ProjectDeployInfoExtensions.GetProjectsByServerId(Hzdtf.PublishProject.Model.Project.ProjectDeployInfo,Hzdtf.PublishProject.Model.Project.ProjectInfo,System.Int32)">
+            <summary>
+            根据服务器ID获取项目数组
+            </summary>
+            <param name="projectDeploy">项目部署</param>
+            <param name="project">项目</param>
+            <param name="serverId">服务器ID</param>
+            <returns>项目数组</returns>
+        </member>
+        <member name="M:Hzdtf.PublishProject.Model.Project.ProjectDeployInfoExtensions.GetMachinesByProjectIds(Hzdtf.PublishProject.Model.Project.ProjectDeployInfo,Hzdtf.PublishProject.Model.Server.ServerInfo.Server,System.Int32[])">
+            <summary>
+            根据项目ID数组获取物理机数组
+            </summary>
+            <param name="projectDeploy">项目部署</param>
+            <param name="server">服务器</param>
+            <param name="projectIds">项目ID数组</param>
+            <returns>物理机数组></returns>
+        </member>
+        <member name="M:Hzdtf.PublishProject.Model.Project.ProjectDeployInfoExtensions.BuilderProjectPublishs(Hzdtf.PublishProject.Model.Project.ProjectDeployInfo,Hzdtf.PublishProject.Model.Server.ServerInfo.Server,Hzdtf.PublishProject.Model.Project.ProjectInfo.Project[],Hzdtf.PublishProject.Model.Server.ServerInfo.Machine[],System.Collections.Generic.IDictionary{System.String,System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String@)">
+            <summary>
+            生成项目发布数组
+            </summary>
+            <param name="projectDeploy">项目部署</param>
+            <param name="server">服务器</param>
+            <param name="selectProjects">选中的项目数组</param>
+            <param name="selectMachines">选中的物理机数组</param>
+            <param name="defaultEnviVars">默认的环境变量</param>
+            <param name="isLocalCompile">是否本地编译</param>
+            <param name="isFullUpdate">是否全量更新</param>
+            <param name="isRemoteBak">是否远程备份</param>
+            <param name="err">错误消息</param>
+            <returns>项目发布数组</returns>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Project.ProjectInfo">
+            <summary>
+            项目信息
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Projects">
+            <summary>
+            项目数组
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.GlobalConfig">
+            <summary>
+            全局配置
+            </summary>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Project.ProjectInfo.Project">
+            <summary>
+            项目
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Project.ProjectId">
+            <summary>
+            项目ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Project.ProjectName">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Project.SourceCode">
+            <summary>
+            源代码
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Project.Selected">
+            <summary>
+            是否选中
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Project.PublishFiles">
+            <summary>
+            需要发布的文件数组
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Project.VersionFile">
+            <summary>
+            版本文件，默认是files.ver
+            </summary>
+        </member>
+        <member name="M:Hzdtf.PublishProject.Model.Project.ProjectInfo.Project.Clone">
+            <summary>
+            浅拷贝
+            </summary>
+            <returns>项目信息</returns>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Project.ProjectInfo.GlobalConfigInfo">
+            <summary>
+            全局配置信息
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.GlobalConfigInfo.IgnoreFiles">
+            <summary>
+            忽略文件数组
+            </summary>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode">
+            <summary>
+            源代码
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.protoPublishProcessFileName">
+            <summary>
+            原始发布进程文件名
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.PublishProcessFileName">
+            <summary>
+            发布进程文件名
+            </summary>
+        </member>
+        <member name="F:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.protoPublishProcessArguments">
+            <summary>
+            原始发布进程参数
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.PublishProcessArguments">
+            <summary>
+            发布进程参数
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.BeforePublishRemove">
+            <summary>
+            发布之前是否删除目标
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.IsLocalCompile">
+            <summary>
+            是否本地编译，默认为是
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.IsFullUpdate">
+            <summary>
+            是否全量更新
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.PublishOutPath">
+            <summary>
+            发布到目标路径
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.IgnoreFiles">
+            <summary>
+            忽略文件数组
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.BeforeDeployBak">
+            <summary>
+            部署前是否需要备份
+            </summary>
+        </member>
+        <member name="F:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.isFristReplEnvi">
+            <summary>
+            是否初始替换环境变量
+            </summary>
+        </member>
+        <member name="M:Hzdtf.PublishProject.Model.Project.ProjectInfo.Sourcecode.ExecReplaceEnviVars(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            环境替换环境变量
+            </summary>
+            <param name="enviVars">环境变量</param>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Project.ProjectPublishInfo">
+            <summary>
+            项目发布信息
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectPublishInfo.ProjectMachines">
+            <summary>
+            项目物理机数组
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectPublishInfo.ServerId">
+            <summary>
+            服务器ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectPublishInfo.ServerName">
+            <summary>
+            服务器名称
+            </summary>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Project.ProjectMachineInfo">
+            <summary>
+            项目物理机信息
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectMachineInfo.Machine">
+            <summary>
+            物理机
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Project.ProjectMachineInfo.Projectdeploy">
+            <summary>
+            项目部署
+            </summary>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Publish.PublishFileInfo">
+            <summary>
+            发布文件信息
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Publish.PublishFileInfo.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Publish.PublishFileInfo.FileFullName">
+            <summary>
+            文件全路径
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Publish.PublishFileInfo.FileMD5">
+            <summary>
+            文件MD5值
+            </summary>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Server.ServerInfo">
+            <summary>
+            服务器信息
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Servers">
+            <summary>
+            服务器数组
+            </summary>
+        </member>
+        <member name="M:Hzdtf.PublishProject.Model.Server.ServerInfo.GetServerByName(System.String)">
+            <summary>
+            根据服务器名称获取服务器
+            </summary>
+            <param name="serverName">服务器名称</param>
+            <returns>服务器</returns>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Server.ServerInfo.Server">
+            <summary>
+            服务器
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Server.ServerId">
+            <summary>
+            服务器ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Server.ServerName">
+            <summary>
+            服务器名称
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Server.Machines">
+            <summary>
+            物理机数组
+            </summary>
+        </member>
+        <member name="T:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine">
+            <summary>
+            物理机
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine.MachineId">
+            <summary>
+            物理机ID
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine.Ip">
+            <summary>
+            IP
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine.Port">
+            <summary>
+            端口
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine.Encrypt">
+            <summary>
+            是否加密
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine.CanConnection">
+            <summary>
+            是否能连接
+            </summary>
+        </member>
+        <member name="P:Hzdtf.PublishProject.Model.Server.ServerInfo.Machine.Selected">
+            <summary>
+            是否选中
+            </summary>
+        </member>
+    </members>
+</doc>

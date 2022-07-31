@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hzdtf.ProjectPublish.Service.Contract</name>
+    </assembly>
+    <members>
+        <member name="T:Hzdtf.ProjectPublish.Service.Contract.DataMapperConfig">
+            <summary>
+            数据映射配置
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.Service.Contract.DataMapperConfig.Register(AutoMapper.IMapperConfigurationExpression)">
+            <summary>
+            注册
+            </summary>
+            <param name="config">配置</param>
+        </member>
+        <member name="T:Hzdtf.ProjectPublish.Service.Contract.IPublishService">
+            <summary>
+            发布服务接口
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.Service.Contract.IPublishService.PublishAsync(Hzdtf.ProjectPublish.Model.Publish.PublishInfo)">
+            <summary>
+            异步发布
+            </summary>
+            <param name="publish">发布信息</param>
+            <returns>任务</returns>
+        </member>
+    </members>
+</doc>

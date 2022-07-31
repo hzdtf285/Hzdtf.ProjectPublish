@@ -1,0 +1,42 @@
+﻿{
+  "GlobalConfig": {
+    "IgnoreFiles": [
+      "appsettings.json",
+      "appsettings.Development.json",
+      "web.config",
+      "amqp.json",
+	    "app.json",
+      "wwwroot*"
+    ]
+  },
+  "Projects": [
+    {
+      "ProjectId": 1,
+      "ProjectName": "服务1",
+      "SourceCode": {
+        "PublishProcessFileName": "dotnet",
+        "PublishProcessArguments": "publish $[SourceCodeRoot]\\Service1 -c release",
+        "BeforePublishRemove": true,
+        "IsFullUpdate": false,
+        "BeforeDeployBak": false,
+        "PublishOutPath": "$[SourceCodeRoot]\\Service1\\bin\\Release\\net5.0\\publish",
+        "IgnoreFiles": [
+        ]
+      }
+    },
+    {
+      "ProjectId": 2,
+      "ProjectName": "服务2",
+      "SourceCode": {
+        "PublishProcessFileName": "dotnet",
+        "PublishProcessArguments": "publish $[SourceCodeRoot]\\Service2 -c release",
+        "BeforePublishRemove": true,
+        "IsFullUpdate": false,
+        "BeforeDeployBak": false,
+        "PublishOutPath": "$[SourceCodeRoot]\\Service2\\bin\\Release\\net5.0\\publish",
+        "IgnoreFiles": [
+        ]
+      }
+    }
+  ]
+}

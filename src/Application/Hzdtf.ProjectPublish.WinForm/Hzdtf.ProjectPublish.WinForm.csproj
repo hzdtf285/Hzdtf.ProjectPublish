@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Authors>黄振东</Authors>
+    <Company>Hzdtf</Company>
+    <Product>项目发布WinForm应用程序</Product>
+    <Description>项目发布WinForm应用程序，运行在.Net5以上</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Persistence\Hzdtf.ProjectPublish.File\Hzdtf.ProjectPublish.File.csproj" />
+    <ProjectReference Include="..\..\Remote\Hzdtf.ProjectPublish.FTP\Hzdtf.ProjectPublish.FTP.csproj" />
+    <ProjectReference Include="..\..\Service\Hzdtf.ProjectPublish.Service.Impl\Hzdtf.ProjectPublish.Service.Impl.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Hzdtf.Logger.Contract">
+      <HintPath>..\..\Library\Hzdtf.Logger.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="Hzdtf.Logger.Integration.ENLog">
+      <HintPath>..\..\Library\Hzdtf.Logger.Integration.ENLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Hzdtf.Logger.Integration.MicrosoftLog">
+      <HintPath>..\..\Library\Hzdtf.Logger.Integration.MicrosoftLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Hzdtf.Mini">
+      <HintPath>..\..\Library\Hzdtf.Mini.dll</HintPath>
+    </Reference>
+    <Reference Include="Hzdtf.Utility">
+      <HintPath>..\..\Library\Hzdtf.Utility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Config\enviVarGroup.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Config\project.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Config\projectDeploy.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Config\server.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

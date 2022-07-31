@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hzdtf.ProjectPublish.FTP</name>
+    </assembly>
+    <members>
+        <member name="T:Hzdtf.ProjectPublish.FTP.FTPService">
+            <summary>
+            FTP服务
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.FTPService.ftpWrap">
+            <summary>
+            FTP包装
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.FTPService.log">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.FTPService.handleId">
+            <summary>
+            操作ID
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.FTPService.#ctor(Hzdtf.ProjectPublish.FTP.Wrap.IFTPWrap,Hzdtf.Logger.Contract.ILogable)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="ftpWrap">FTP包装</param>
+            <param name="log">日志</param>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.FTPService.TestConnectionAsync(Hzdtf.PublishProject.Model.Server.ServerInfo.Machine[])">
+            <summary>
+            异步测试连接
+            </summary>
+            <param name="machines">物理机数组</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.FTPService.PublishAsync(Hzdtf.ProjectPublish.Model.Publish.PublishInfo,System.String)">
+            <summary>
+            异步发布
+            </summary>
+            <param name="publish">发布信息</param>
+            <param name="handleId">操作ID</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.FTPService.ExecFtpPublishAsync(Hzdtf.ProjectPublish.Model.Publish.PublishInfo,Hzdtf.PublishProject.Model.Project.ProjectPublishInfo)">
+            <summary>
+            异步执行FTP发布
+            </summary>
+            <param name="publish">发布信息</param>
+            <param name="projectPublish">项目发布</param>
+            <returns>任务</returns>
+        </member>
+        <member name="T:Hzdtf.ProjectPublish.FTP.FtpProgressHandle">
+            <summary>
+            FTP进度处理
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.FtpProgressHandle.publish">
+            <summary>
+            发布信息
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.FtpProgressHandle.projectPublish">
+            <summary>
+            项目发布
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.FtpProgressHandle.head">
+            <summary>
+            头
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.FtpProgressHandle.handleId">
+            <summary>
+            操作ID
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.FtpProgressHandle.log">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.FtpProgressHandle.#ctor(Hzdtf.ProjectPublish.Model.Publish.PublishInfo,Hzdtf.PublishProject.Model.Project.ProjectPublishInfo,System.String,System.String,Hzdtf.Logger.Contract.ILogable)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="publish">发布信息</param>
+            <param name="projectPublish">项目发布</param>
+            <param name="head">头</param>
+            <param name="handleId">处理ID</param>
+            <param name="log">日志</param>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.FtpProgressHandle.Report(FluentFTP.FtpProgress)">
+            <summary>
+            报告
+            </summary>
+            <param name="value">FTP进度</param>
+        </member>
+        <member name="T:Hzdtf.ProjectPublish.FTP.Wrap.FTPWrap">
+            <summary>
+            FTP包装
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.Wrap.FTPWrap.cache">
+            <summary>
+            FTP缓存，key：IP+端口, value：FTP客户端
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.FTP.Wrap.FTPWrap.syncCache">
+            <summary>
+            同步FTP缓存
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.Wrap.FTPWrap.GetCanUseFtpAsync(Hzdtf.PublishProject.Model.Server.ServerInfo.Machine)">
+            <summary>
+            异步获取一个可用的FTP客户端
+            </summary>
+            <param name="machine">物理机</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.Wrap.FTPWrap.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.Wrap.FTPWrap.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:Hzdtf.ProjectPublish.FTP.Wrap.IFTPWrap">
+            <summary>
+            FTP包装接口
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.FTP.Wrap.IFTPWrap.GetCanUseFtpAsync(Hzdtf.PublishProject.Model.Server.ServerInfo.Machine)">
+            <summary>
+            异步获取一个可用的FTP客户端
+            </summary>
+            <param name="machine">物理机</param>
+            <returns>任务</returns>
+        </member>
+    </members>
+</doc>

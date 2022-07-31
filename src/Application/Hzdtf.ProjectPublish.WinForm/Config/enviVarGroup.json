@@ -1,0 +1,8 @@
+﻿{
+  "Dev": {
+    "SourceCodeRoot": "D:\\Projects\\Branches\\Dev\\src"
+  },
+  "Trunk": {
+    "SourceCodeRoot": "D:\\Projects\\trunk\\src"
+  }
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hzdtf.ProjectPublish.Service.Impl</name>
+    </assembly>
+    <members>
+        <member name="T:Hzdtf.ProjectPublish.Service.Impl.PublishService">
+            <summary>
+            发布服务
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.Service.Impl.PublishService.remoteService">
+            <summary>
+            远程服务
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.Service.Impl.PublishService.currHandleId">
+            <summary>
+            当前操作ID
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.Service.Impl.PublishService.Set(Hzdtf.ProjectPublish.Remote.Contract.IRemoteService)">
+            <summary>
+            设置远程服务
+            </summary>
+            <param name="remoteService">远程服务</param>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.Service.Impl.PublishService.PublishAsync(Hzdtf.ProjectPublish.Model.Publish.PublishInfo)">
+            <summary>
+            异步发布
+            </summary>
+            <param name="publish">发布信息</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.Service.Impl.PublishService.ExecLocalProjectsPublish(Hzdtf.ProjectPublish.Model.Publish.PublishInfo)">
+            <summary>
+            执行本地项目发布
+            </summary>
+            <param name="publish">发布信息</param>
+            <returns>返回信息</returns>
+        </member>
+        <member name="T:Hzdtf.ProjectPublish.Service.Impl.ServiceBase">
+            <summary>
+            服务基类
+            @ 黄振东
+            </summary>
+        </member>
+        <member name="F:Hzdtf.ProjectPublish.Service.Impl.ServiceBase.log">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="M:Hzdtf.ProjectPublish.Service.Impl.ServiceBase.#ctor(Hzdtf.Logger.Contract.ILogable)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="log">日志</param>
+        </member>
+    </members>
+</doc>
