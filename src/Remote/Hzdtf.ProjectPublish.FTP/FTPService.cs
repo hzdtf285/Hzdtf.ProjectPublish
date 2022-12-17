@@ -205,7 +205,7 @@ namespace Hzdtf.ProjectPublish.FTP
                 // 先将服务器的版本文件下载下来
                 var remoteFileVerName = $"{pm.Projectdeploy.ProjectDeployPath}/{projectPublish.VersionFile}";
                 var localVerFile = $"{projectPublish.SourceCode.PublishOutPath}/{projectPublish.VersionFile}";
-                var verFtpStatus = ftp.DownloadFileAsync(localVerFile, remoteFileVerName, FtpLocalExists.Overwrite).Result;
+                var verFtpStatus = ftp.DownloadFile(localVerFile, remoteFileVerName, FtpLocalExists.Overwrite);
                 IDictionary<string, string> dicFileVer = null;
                 if (verFtpStatus == FtpStatus.Success)
                 {
@@ -218,8 +218,6 @@ namespace Hzdtf.ProjectPublish.FTP
                     await log.WranAsync(msg, null, typeof(FTPService).Name, "ExecFtpPublish", handleId);
                     publish.OnCallbackExecProject(projectPublish, ProgressStatus.Execing, msg);
                 }
-
-                var progress = new FtpProgressHandle(publish, projectPublish, head, handleId, log);
 
                 var isUpdatedRemoveFile = false; // 是否更新过远程文件
                 foreach (var f in projectPublish.PublishFiles)
@@ -234,8 +232,14 @@ namespace Hzdtf.ProjectPublish.FTP
                     FtpStatus ftpStatus = FtpStatus.Success;
                     try
                     {
-                        ftpStatus = await ftp.UploadFileAsync(localPath: f.FileFullName, remotePath: targetFile, existsMode: FtpRemoteExists.Overwrite, createRemoteDir: true,
-                           progress: progress);
+                        ftpStatus = ftp.UploadFile(localPath: f.FileFullName, remotePath: targetFile, existsMode: FtpRemoteExists.Overwrite, createRemoteDir: true,
+                           progress: (ftpProgress)=>
+                           {
+                               var msg = $"{head}:{ftpProgress.RemotePath} 上传:{Math.Round(ftpProgress.Progress, 1)}%";
+                               log.InfoAsync(msg, null, typeof(FTPService).Name, "ExecFtpPublish", handleId);
+
+                               publish.OnCallbackExecFileDesc(projectPublish, ftpProgress.Progress >= 100 ? ProgressStatus.AfterExec : ProgressStatus.Execing, msg, ftpProgress.RemotePath, ftpProgress.Progress);
+                           });
                     }
                     catch (Exception ex)
                     {
@@ -273,7 +277,7 @@ namespace Hzdtf.ProjectPublish.FTP
                     {
                         // 所有文件上传成功，最后将最新的文件版本文件上传上去
                         var verJson = dicFileVer.ToJsonString();
-                        var uploadFtpVerStatus = ftp.UploadBytesAsync(Encoding.UTF8.GetBytes(verJson), remoteFileVerName, FtpRemoteExists.Overwrite, true).Result;
+                        var uploadFtpVerStatus = ftp.UploadBytes(Encoding.UTF8.GetBytes(verJson), remoteFileVerName, FtpRemoteExists.Overwrite, true);
                         if (uploadFtpVerStatus == FtpStatus.Success)
                         {
                             var msg = $"{head}FTP发布成功";
@@ -308,67 +312,6 @@ namespace Hzdtf.ProjectPublish.FTP
             projectPublish.PublishFiles = null;
 
             return re;
-        }
-    }
-
-    /// <summary>
-    /// FTP进度处理
-    /// @ 黄振东
-    /// </summary>
-    public class FtpProgressHandle : IProgress<FtpProgress>
-    {
-        /// <summary>
-        /// 发布信息
-        /// </summary>
-        private readonly PublishInfo publish;
-
-        /// <summary>
-        /// 项目发布
-        /// </summary>
-        private readonly ProjectPublishInfo projectPublish;
-
-        /// <summary>
-        /// 头
-        /// </summary>
-        private readonly string head;
-
-        /// <summary>
-        /// 操作ID
-        /// </summary>
-        private readonly string handleId;
-
-        /// <summary>
-        /// 日志
-        /// </summary>
-        private readonly ILogable log;
-
-        /// <summary>
-        /// 构造方法
-        /// </summary>
-        /// <param name="publish">发布信息</param>
-        /// <param name="projectPublish">项目发布</param>
-        /// <param name="head">头</param>
-        /// <param name="handleId">处理ID</param>
-        /// <param name="log">日志</param>
-        public FtpProgressHandle(PublishInfo publish, ProjectPublishInfo projectPublish, string head, string handleId, ILogable log)
-        {
-            this.publish = publish;
-            this.projectPublish = projectPublish;
-            this.head = head;
-            this.handleId = handleId;
-            this.log = log;
-        }
-
-        /// <summary>
-        /// 报告
-        /// </summary>
-        /// <param name="value">FTP进度</param>
-        public void Report(FtpProgress value)
-        {
-            var msg = $"{head}:{value.RemotePath} 上传:{Math.Round(value.Progress, 1)}%";
-            log.InfoAsync(msg, null, typeof(FTPService).Name, "ExecFtpPublish", handleId);
-
-            publish.OnCallbackExecFileDesc(projectPublish, value.Progress >= 100 ? ProgressStatus.AfterExec : ProgressStatus.Execing, msg, value.RemotePath, value.Progress);
         }
     }
 }

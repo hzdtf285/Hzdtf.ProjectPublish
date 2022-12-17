@@ -21,16 +21,13 @@
             名称
             </summary>
         </member>
-        <member name="M:Hzdtf.Logger.Integration.ENLog.IntegrationNLog.#ctor">
-            <summary>
-            构造方法
-            </summary>
-        </member>
-        <member name="M:Hzdtf.Logger.Integration.ENLog.IntegrationNLog.#ctor(System.String)">
+        <member name="M:Hzdtf.Logger.Integration.ENLog.IntegrationNLog.#ctor(System.String,Hzdtf.Logger.Contract.ILogRecordLevel,Hzdtf.Utility.TheOperation.ITheOperation)">
             <summary>
             构造方法
             </summary>
             <param name="name">名称</param>
+            <param name="logRecordLevel">日志记录级别</param>
+            <param name="theOperation">本地操作</param>
         </member>
         <member name="M:Hzdtf.Logger.Integration.ENLog.IntegrationNLog.WriteStorage(System.String,System.String,System.String,System.Exception,System.String,System.String[])">
             <summary>

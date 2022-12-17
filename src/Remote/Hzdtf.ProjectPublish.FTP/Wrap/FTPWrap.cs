@@ -46,13 +46,13 @@ namespace Hzdtf.ProjectPublish.FTP.Wrap
                 ftp.Host = machine.Ip;
                 ftp.Port = machine.Port;
                 ftp.Credentials = new NetworkCredential(machine.User, pwd);
-                await ftp.ConnectAsync();
+                ftp.Connect();
 
                 lock (syncCache)
                 {
                     if (cache.ContainsKey(key))
                     {
-                        ftp.DisconnectAsync();
+                        ftp.Disconnect();
                         return cache[key];
                     }
                     cache.Add(key, ftp);

@@ -25,15 +25,16 @@
             原生日志
             </summary>
         </member>
-        <member name="P:Hzdtf.Logger.Text.Integration.MicrosoftLog.IntegrationLog.LogRecordLevel">
+        <member name="F:Hzdtf.Logger.Text.Integration.MicrosoftLog.IntegrationLog.logRecordLevel">
             <summary>
             日志记录级别
             </summary>
         </member>
-        <member name="M:Hzdtf.Logger.Text.Integration.MicrosoftLog.IntegrationLog.#ctor">
+        <member name="M:Hzdtf.Logger.Text.Integration.MicrosoftLog.IntegrationLog.#ctor(Hzdtf.Logger.Contract.ILogRecordLevel)">
             <summary>
             构造方法
             </summary>
+            <param name="logRecordLevel">日志记录级别</param>
         </member>
         <member name="M:Hzdtf.Logger.Text.Integration.MicrosoftLog.IntegrationLog.#ctor(System.String,Hzdtf.Logger.Contract.ILogable,Hzdtf.Logger.Contract.ILogRecordLevel)">
             <summary>
@@ -225,15 +226,22 @@
             @ 黄振东
             </summary>
         </member>
-        <member name="P:Hzdtf.Logger.Integration.MicrosoftLog.IntegrationLogProvider.ProtoLog">
+        <member name="F:Hzdtf.Logger.Integration.MicrosoftLog.IntegrationLogProvider.protoLog">
             <summary>
             原生日志
             </summary>
         </member>
-        <member name="P:Hzdtf.Logger.Integration.MicrosoftLog.IntegrationLogProvider.LogRecordLevel">
+        <member name="F:Hzdtf.Logger.Integration.MicrosoftLog.IntegrationLogProvider.logRecordLevel">
             <summary>
             日志记录级别
             </summary>
+        </member>
+        <member name="M:Hzdtf.Logger.Integration.MicrosoftLog.IntegrationLogProvider.#ctor(Hzdtf.Logger.Contract.ILogable,Hzdtf.Logger.Contract.ILogRecordLevel)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="protoLog">原生日志</param>
+            <param name="logRecordLevel">日志记录级别</param>
         </member>
         <member name="M:Hzdtf.Logger.Integration.MicrosoftLog.IntegrationLogProvider.CreateLogger(System.String)">
             <summary>
@@ -247,19 +255,21 @@
             释放资源
             </summary>
         </member>
-        <member name="T:Microsoft.Extensions.Logging.IntegrationLogExtensions">
+        <member name="T:Microsoft.Extensions.DependencyInjection.IntegrationLogExtensions">
             <summary>
             集成日志扩展类
             @ 黄振东
             </summary>
         </member>
-        <member name="M:Microsoft.Extensions.Logging.IntegrationLogExtensions.AddFoxUC(Microsoft.Extensions.Logging.ILoggingBuilder,System.Action{Hzdtf.Logger.Integration.MicrosoftLog.IntegrationLogProvider})">
+        <member name="M:Microsoft.Extensions.DependencyInjection.IntegrationLogExtensions.AddFoxUCLog(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Action{Microsoft.Extensions.Logging.ILoggingBuilder,Microsoft.Extensions.Logging.ILoggerProvider})">
             <summary>
-            添加Hzdtf
+            添加Hzdtf日志
+            默认原生日志为控制台日志（ConsoleLog）
             </summary>
-            <param name="logBuilder">日志生成器</param>
+            <param name="services">服务收藏</param>
+            <param name="protoLogType">原生日志类型，必须是实现ILogable的接口实现类类型，默认是ConsoleLog实现类</param>
             <param name="options">回调选项，如果需要指定原生日志对象，则需要配置；否则使用默认的原生日志</param>
-            <returns>日志生成器</returns>
+            <returns>服务收藏</returns>
         </member>
     </members>
 </doc>
